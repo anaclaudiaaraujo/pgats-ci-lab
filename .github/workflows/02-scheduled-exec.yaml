@@ -3,7 +3,7 @@ name: 'Execução Manual'
 on:
     schedule:
       # minutos, horas, dias do mês, meses, dias da semana
-        - cron: '0 6 * * 5'
+        - cron: '0 20 * * 5' # Executa às 20:00 toda sexta-feira
 
 jobs:
     e2e-tests:
@@ -33,7 +33,7 @@ jobs:
           uses: actions/upload-artifact@v2
           with:
             name: e2e-test-results
-            path: playwright-report/
+            path: test-results/
 
         - name: Notify completion
           run: echo "E2E tests completed successfully."
